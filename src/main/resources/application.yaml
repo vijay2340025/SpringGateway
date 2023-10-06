@@ -1,6 +1,17 @@
 spring:
   application:
     name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: product-service
+          uri: lb://EMPLOYEE-CLIENT
+          predicates:
+            - Path=/EmployeeClient/**
+
+logging:
+  level:
+    root: DEBUG
 
 eureka:
   client:
